@@ -1,0 +1,19 @@
+body{
+    background-color: chocolate;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+body *{
+    font-family: Arial;
+}
+
+h1{
+    font-weight: normal;
+    margin: 0;
+}
+
+a, a:hover, a:visited{
+    color: black;
+    text-decoration: none;
+}

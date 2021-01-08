@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <div class="create-movie">
+        <h2>Kreiraj film</h2>
+        <form class="site-form" action="{% url 'film:create' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Kreiraj film">
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <div class="update-movie">
+        <h2>Apdejtuj film</h2>
+        <form class="site-form" action="{% url 'film:update' film_id %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Apdejtuj film">
+        </form>
+    </div>
+
+{% endblock %}

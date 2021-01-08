@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Despot</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1><a href="{% url 'film:lista' %}">Vrati listu filmova</a></h1>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <form class = "logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+{#                        <li><a href="{% url 'film:create' %}">Kreiraj film</a></li>#}
+                    {% else %}
+                        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                        <li><a href="{% url 'accounts:register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% block login %}
+        {% endblock %}
+        {% if user.is_authenticated %}
+            {% block content %}
+            {% endblock %}
+        {% endif %}
+        </div>
+    </body>
+</html>

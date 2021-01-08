@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>Lista filmova</h1>
+        <div class="lista">
+            {% for film in lista %}
+            <div class="film">
+            <h2>{{film.naziv}}</h2>
+            <p>{{film.godina}}</p>
+            <p>{{film.ocena}}</p>
+            <button type="submit"><a href="{% url 'film:update' film.id%}">Odvedi do apdejtovanja</a></button>
+            <button type="submit"><a href="{% url 'film:delete' film.id%}">Odvedi do brisanja</a></button>
+            </div>
+            {% endfor %}
+            <button type="submit"><a href="{% url 'film:create' %}">Odvedi do kreiranja</a></button>
+        </div>
+{% endblock %}
